@@ -1,9 +1,29 @@
 body {
     width: 100%;
+    background-color: green;
 }
 
 nav {
     margin-bottom: 2vmin;
+}
+
+h1 {
+    text-align: center;
+    margin: 10px 0 -10px 0;
+    font-size: 75px;
+    color: #d8a575;
+    text-shadow: -1px -1px 0 #000,
+    3px 3px 0 #000,
+    -1px -1px 0 #000,
+    1px 1px 0 #000;
+}
+
+h2 {
+    display: inline-block;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: palegoldenrod;
 }
 
 #navTitle {
@@ -12,10 +32,6 @@ nav {
 }
 
 #resetButton {
-    margin-bottom: 3vmin;
-}
-
-#difficultyButtons {
     margin-bottom: 3vmin;
 }
 
@@ -31,10 +47,37 @@ nav {
     margin-bottom: 2vmin;
 }
 
-#playArea {
+#hand {
     display: grid;
     width: 100%;
     justify-items: center;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 2px;
+}
+
+#dealerCard1 {
+    background-image: url("images/backs/blue.svg");
+}
+
+button {
+    width: 80px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 20px;
+    border: 2px solid black;
+}
+
+#hitBtn {
+    background-color: lime;
+}
+
+#standBtn {
+    background-color: red;
+}
+
+img {
+    background-color: white;
+    width: 150px;
+    margin: 10px;
+    border-radius: 5px;
 }
