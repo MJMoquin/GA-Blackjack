@@ -1,36 +1,61 @@
 /*------------ constants ---------------*/
 const players = {
-    'player': {
-        name: '',
-        hand: [],
-        bank: 0
-    }
-    'dealer': {
+    '1': {
         name: 'Dealer',
         hand: [],
         bank: null
+    },
+    '2': {
+        name: 'Player',
+        hand: [],
+        bank: 0
     }
 }
 
 
 /*------ app's state (variables) -------*/
-let turn = 1;
 let pot = 0;
 let deck = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ","hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09","c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06","s05","s04","s03","s02"];
 let gameDeck = [];
 
 /*----- cached element references ------*/
+const dealerCards = document.getElementById('dealerHand');
+const playerCards = document.getElementById('playerHand');
+const cardId = document.getElementById('')
+const playScoreEl = document.getElementById('playerScore');
 
 /*---------- event listeners -----------*/
 
-/*------------- functions --------------*/
 
+/*------------- functions --------------*/
+init();
 
 function init() {
-    players.player.bank = 500;
+    players[2].bank = 500;
     shuffleDeck();
     dealCards();
-
+    renderHands();
+}
+function renderScore(total) {
+    playScoreEl.innerHTML = playScoreEl.innerHTML + Number(total);
+}
+ 
+function renderHands() {
+    for (let i in players) {
+        for (let j = 0; j < players[i].hand.length; j++) {
+            let idStart;
+            if(i == 1) {
+                idStart = 'dc';
+            }
+            else {
+                idStart = 'pc';
+            }
+            myId = idStart + j;
+            myElement = document.getElementById(myId)
+            myElement.classList.add(players[i].hand[j]);
+        }
+    }
+    totalHand(players[2].hand);
 }
 
 function shuffleDeck () {
@@ -56,47 +81,43 @@ function dealCards() {
         gameDeck.shift();
       }   
     }
+    
 }
 
-function totalHand() {
-
+function totalHand(hand) {
+    let marker;
+    let total = 0;
+    for (card in hand) {
+      marker = (hand[card].replace(hand[card].charAt(0), ''))
+      if (marker === 'K' || marker === 'Q' || marker === 'J') {
+        total += 10;
+      }
+      else if (marker === 'A') {
+        total += 1;
+      }
+      else {
+        total += Number(marker);
+      }
+    }
+    if (hand.includes('hA') || hand.includes('dA') || hand.includes('cA') || hand.includes('sA') && total <= 11) {
+      total += 10;
+    }
+    renderScore(total);    
 }
 
 function hit() {
-
+    totalHand(players[2].hand)
 }
 
 function stand() {
-
+    dealerPlay();
 }
 
 function dealerPlay () {
-
+    document.getElementById('dc0').classList.remove('back-red');
+    totalHand(players[1].hand);
 }
 
 function getWinner() {
 
 }
-
-function renderHand() {
-    playArea.innerHTML = '';
-    cardsInPlay.forEach(function(card) {
-        // 0 denotes a card face down
-        if (card[0]) {
-            let appendCard = document.createElement("div");
-            appendCard.className = "card large back-red";
-            playArea.appendChild(appendCard);
-        // 1 denotes a card being guessed    
-        } else if (card[1]) {
-            let appendCard = document.createElement("div");
-            appendCard.className = `card large ${card[1]}`;
-            playArea.appendChild(appendCard);
-        // 2 denotes a card guessed correctly    
-        } else if (card[2]) {
-            let appendCard = document.createElement("div");
-            appendCard.className = `card large ${card[2]}`;
-            playArea.appendChild(appendCard);
-        }
-    }) 
-}
-

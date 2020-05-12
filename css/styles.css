@@ -1,4 +1,6 @@
 body {
+    display: unset;
+    text-align: unset;
     width: 100%;
     background-color: green;
 }
@@ -22,7 +24,8 @@ h2 {
     display: inline-block;
     border: 2px solid white;
     border-radius: 10px;
-    padding: 10px;
+    margin-right: 40px;
+    padding: 10px 15px;
     background-color: palegoldenrod;
 }
 
@@ -73,11 +76,4 @@ button {
 
 #standBtn {
     background-color: red;
-}
-
-img {
-    background-color: white;
-    width: 150px;
-    margin: 10px;
-    border-radius: 5px;
 }
