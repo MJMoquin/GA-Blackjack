@@ -23,8 +23,12 @@ const dealerCards = document.getElementById('dealerHand');
 const playerCards = document.getElementById('playerHand');
 const cardId = document.getElementById('')
 const playScoreEl = document.getElementById('playerScore');
+const dealScoreEl = document.getElementById('dealerScore');
+const hitBtn = document.getElementById('hitBtn');
+const standBtn = document.getElementById('standBtn');
 
 /*---------- event listeners -----------*/
+standBtn.addEventListener('click', stand);
 
 
 /*------------- functions --------------*/
@@ -36,8 +40,13 @@ function init() {
     dealCards();
     renderHands();
 }
-function renderScore(total) {
-    playScoreEl.innerHTML = playScoreEl.innerHTML + Number(total);
+function renderScore(total, player) {
+    if (player === 2) {
+        playScoreEl.innerHTML = playScoreEl.innerHTML + Number(total);
+    }
+    else {
+        dealScoreEl.innerHTML = dealScoreEl.innerHTML + Number(total);
+    }
 }
  
 function renderHands() {
@@ -55,7 +64,7 @@ function renderHands() {
             myElement.classList.add(players[i].hand[j]);
         }
     }
-    totalHand(players[2].hand);
+    totalHand(2);
 }
 
 function shuffleDeck () {
@@ -84,7 +93,8 @@ function dealCards() {
     
 }
 
-function totalHand(hand) {
+function totalHand(player) {
+    let hand = players[player].hand;
     let marker;
     let total = 0;
     for (card in hand) {
@@ -102,11 +112,11 @@ function totalHand(hand) {
     if (hand.includes('hA') || hand.includes('dA') || hand.includes('cA') || hand.includes('sA') && total <= 11) {
       total += 10;
     }
-    renderScore(total);    
+    renderScore(total, player);   
 }
 
 function hit() {
-    totalHand(players[2].hand)
+    totalHand(playerIndex)
 }
 
 function stand() {
@@ -115,7 +125,8 @@ function stand() {
 
 function dealerPlay () {
     document.getElementById('dc0').classList.remove('back-red');
-    totalHand(players[1].hand);
+    document.getElementById('dealerScore').classList.remove('hidden');
+    totalHand(1);
 }
 
 function getWinner() {

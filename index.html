@@ -11,8 +11,12 @@
         
     </head>
     <body>
-        <h1>Blackjack</h1>
-        <h2>Dealer Hand</h2>
+        <header>
+            <img src="images/cards.jpg" alt="">
+            <h1>Blackjack</h1>
+            <img src="images/cards.jpg" alt="">
+        </header>
+        <h2>Dealer Hand</h2><h2 class="hidden" id="dealerScore">Total: </h2>
         <div class="hand">
             <div class="card large back-red" id="dc0"></div>
             <div class="card large" id="dc1"></div>
@@ -23,7 +27,9 @@
             <div class="card hidden" id="dc6"></div>
             
         </div>
-        <h2>Player Hand</h2><h2 id="playerScore">Player Total: </h2>
+        <h2>Player Hand</h2><h2 id="playerScore">Total: </h2>
+        <button id="hitBtn">Hit</button>
+        <button id="standBtn">Stand</button>
         <div id="playerHand"></div>
         <div class="hand">
             <div class="card large" id="pc0"></div>
@@ -33,10 +39,7 @@
             <div class="card hidden" id="pc4"></div>
             <div class="card hidden" id="pc5"></div>
             <div class="card hidden" id="pc6"></div>
-            
         </div>
-        <button id="hitBtn">Hit</button>
-        <button id="standBtn">Stand</button>
         <script src="js/main.js" async defer></script>
     </body>
 </html>
