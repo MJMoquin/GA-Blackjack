@@ -16,6 +16,7 @@
             <h1>Blackjack</h1>
             <img src="images/cards.jpg" alt="">
         </header>
+
         <h2>Dealer Hand</h2>
         <h2 class="hidden" id="dealerTotal">Total: 
             <span id="dealerScore"></span>
@@ -30,10 +31,14 @@
             <div class="card large hidden" id="dc6"></div>
             
         </div>
-        <h2>Player Hand</h2><h2>Total: <span id="playerScore"></span></h2>
+
+        <h2>Player Hand</h2>
+        <h2 id="playerTotal">Total: 
+            <span id="playerScore"></span>
+        </h2>
         <button id="hitBtn">Hit</button>
         <button id="standBtn">Stand</button>
-        <button id="reset">Reset</button>
+        <button class="hidden" id="reset">New Hand</button>
         <div id="playerHand"></div>
         <div class="hand">
             <div class="card large hidden" id="pc0"></div>

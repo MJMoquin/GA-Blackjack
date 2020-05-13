@@ -48,9 +48,9 @@ h2 {
     color: white;
 }
 
-#resetButton {
+/* #resetButton {
     margin-bottom: 3vmin;
-}
+} */
 
 .hidden {
     display: none;
@@ -59,14 +59,14 @@ h2 {
 .btn {
     margin-right: 2vmin;
 }
-
+/* 
 #message {
     margin-bottom: 2vmin;
-}
+} */
 
-#hand {
-    display: grid;
-    width: 100%;
+.hand {
+    display: flex;
+    justify-content: flex-start;
     justify-items: center;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 2px;
@@ -99,4 +99,12 @@ button {
 
 #standBtn:hover {
     background-color: red;
+}
+
+#reset {
+    width: 200px;
+    height: 65px;
+    font-size: 30px;
+    background-color: palegoldenrod;
+    color: rgb(35, 104, 233);
 }
