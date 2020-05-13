@@ -27,10 +27,12 @@ const playScoreEl = document.getElementById('playerScore');
 const dealScoreEl = document.getElementById('dealerScore');
 const hitBtn = document.getElementById('hitBtn');
 const standBtn = document.getElementById('standBtn');
+const resetBtn = document.getElementById('reset');
 
 /*---------- event listeners -----------*/
 standBtn.addEventListener('click', stand);
 hitBtn.addEventListener('click', hit)
+resetBtn.addEventListener('click', init());
 
 /*------------- functions --------------*/
 init();
@@ -41,9 +43,6 @@ function init() {
     dealCards();
     renderHands();
 }
-
- 
-
 
 function shuffleDeck () {
     let cardToShuffle;
