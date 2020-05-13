@@ -32,7 +32,7 @@ const resetBtn = document.getElementById('reset');
 /*---------- event listeners -----------*/
 standBtn.addEventListener('click', stand);
 hitBtn.addEventListener('click', hit)
-resetBtn.addEventListener('click', init());
+resetBtn.addEventListener('click', init;
 
 /*------------- functions --------------*/
 init();
