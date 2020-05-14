@@ -11,46 +11,61 @@
         
     </head>
     <body>
-        <header>
-            <img src="images/cards.jpg" alt="">
-            <h1>Blackjack</h1>
-            <img src="images/cards.jpg" alt="">
-        </header>
+        <div class="parent">
+            <div>
+                <header>
+                    <img src="images/cards.jpg" alt="">
+                    <h1>Blackjack</h1>
+                    <img src="images/cards.jpg" alt="">
+                </header>
 
-        <h2>Dealer Hand</h2>
-        <h2 class="hidden" id="dealerTotal">Total: 
-            <span id="dealerScore"></span>
-        </h2>
-        <div class="hand">
-            <div class="card large back-red" id="dc0"></div>
-            <div class="card large hidden" id="dc1"></div>
-            <div class="card large hidden" id="dc2"></div>
-            <div class="card large hidden" id="dc3"></div>
-            <div class="card large hidden" id="dc4"></div>
-            <div class="card large hidden" id="dc5"></div>
-            <div class="card large hidden" id="dc6"></div>
-            
-        </div>
+                <h2>Dealer Hand</h2>
+                <h2 class="hidden" id="dealerTotal">Total: 
+                    <span id="dealerScore"></span>
+                </h2>
+                <div class="hand">
+                    <div class="card large back-red" id="dc0"></div>
+                    <div class="card large hidden" id="dc1"></div>
+                    <div class="card large hidden" id="dc2"></div>
+                    <div class="card large hidden" id="dc3"></div>
+                    <div class="card large hidden" id="dc4"></div>
+                    <div class="card large hidden" id="dc5"></div>
+                    <div class="card large hidden" id="dc6"></div>
+                    <div class="card large hidden" id="dc7"></div>                    
+                </div>
 
-        <h2>Player Hand</h2>
-        <h2 id="playerTotal">Total: 
-            <span id="playerScore"></span>
-        </h2>
-        <button id="hitBtn">Hit</button>
-        <button id="standBtn">Stand</button>
-        <button class="hidden" id="reset">New Hand</button>
-        <h2 id="playerBankWindow">Bank: $<span id="playerBank"></span></h2>
-        <div id="playerHand"></div>
-        <div class="hand">
-            <div class="card large hidden" id="pc0"></div>
-            <div class="card large hidden" id="pc1"></div>
-            <div class="card large hidden" id="pc2"></div>
-            <div class="card large hidden" id="pc3"></div>
-            <div class="card large hidden" id="pc4"></div>
-            <div class="card large hidden" id="pc5"></div>
-            <div class="card large hidden" id="pc6"></div>
+                <h2>Player Hand</h2>
+                <h2 id="playerTotal">Total: 
+                    <span id="playerScore"></span>
+                </h2>
+                <button id="hitBtn">Hit</button>
+                <button id="standBtn">Stand</button>
+                <button class="hidden" id="reset">New Hand</button>
+                <h2 id="playerBankWindow">Bank: $<span id="playerBank"></span></h2>
+                <div id="playerHand"></div>
+                <div class="hand">
+                    <div class="card large hidden" id="pc0"></div>
+                    <div class="card large hidden" id="pc1"></div>
+                    <div class="card large hidden" id="pc2"></div>
+                    <div class="card large hidden" id="pc3"></div>
+                    <div class="card large hidden" id="pc4"></div>
+                    <div class="card large hidden" id="pc5"></div>
+                    <div class="card large hidden" id="pc6"></div>
+                    <div class="card large hidden" id="pc7"></div>
+                </div>
+            </div>
+            <div class="over-div">
+                <h2 class="hidden msg" id="loser">
+                    DEALER WINS!!!
+                </h2>
+                <h2 class="hidden msg" id="winner">
+                    PLAYER WINS!!!
+                </h2>
+                <h2 class="hidden msg" id="push">
+                    IT'S A PUSH!!!
+                </h2>
+            </div>
         </div>
-        
         <script src="js/main.js" async defer></script>
     </body>
 </html>

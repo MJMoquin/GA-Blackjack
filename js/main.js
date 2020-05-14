@@ -31,6 +31,9 @@ const resetBtn = document.getElementById('reset');
 const dealTotal = document.getElementById('dealerTotal');
 const playTotal = document.getElementById('playerTotal');
 const playBankEl = document.getElementById('playerBank')
+const winMsg = document.getElementById('winner');
+const loseMsg = document.getElementById('loser');
+const tieMsg = document.getElementById('push')
 
 /*---------- event listeners -----------*/
 standBtn.addEventListener('click', stand);
@@ -55,7 +58,7 @@ function init() {
 
 function resetBoard() {
     for (let i in players) {
-        for (let j = 0; j <= 6; j++) {
+        for (let j = 0; j <= 7; j++) {
             let idStart;
             if(i == 1) {
                 idStart = 'dc';
@@ -74,10 +77,13 @@ function resetBoard() {
             if (myId === 'dc0') classList.add('back-red');
         }
     }
+    winMsg.classList.add('hidden');
+    loseMsg.classList.add('hidden');
+    tieMsg.classList.add('hidden');
     dealTotal.classList.add('hidden');
-    resetBtn.classList.add('hidden')
-    hitBtn.classList.remove('hidden')
-    standBtn.classList.remove('hidden')
+    resetBtn.classList.add('hidden');
+    hitBtn.classList.remove('hidden');
+    standBtn.classList.remove('hidden');
 }
 
 function shuffleDeck () {
@@ -230,4 +236,17 @@ function getWinner() {
         winner = 'T'
     }
     renderBank();
+    renderWinner();
+}
+
+function renderWinner() {
+    if (winner === 'player') {
+        winMsg.classList.remove('hidden')
+    }
+    else if (winner === 'dealer') {
+        loseMsg.classList.remove('hidden')
+    }
+    else {
+        tieMsg.classList.remove('hidden')
+    }
 }
