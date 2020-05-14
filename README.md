@@ -26,3 +26,10 @@ Blackjack is the American version of a popular global banking game known as Twen
 ( If you're already familiar with how to play, go ahead and play me [Here!](https://mjmoquin.github.io/GA-Blackjack/) )
 
 The game begins with each player and the dealer being dealt two cards. Only one of the dealer's cards is shown. The object is to get a total 21 or as close as you can without going over. Cards are scored as face value for numbers, face cards count as 10 and aces can either be 1 or 11. The players 'Hits' to get another card. If the player or dealer exceeds 21 the other is declared the winner of the hand. As noted above, the players are NOT playing against each other, but against the dealer alone.
+
+### Future Features:
+
+* Add Variable Betting
+* Add Win/Loss Message
+* Add Gameplay Sounds
+* Add Card Animation
