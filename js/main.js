@@ -15,6 +15,7 @@ const players = {
 
 /*------ app's state (variables) -------*/
 let turn = 1;
+let betAmount = 5;
 let winner;
 let deck = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ","hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09","c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06","s05","s04","s03","s02"];
 let gameDeck = [];
@@ -37,6 +38,7 @@ hitBtn.addEventListener('click', hit)
 resetBtn.addEventListener('click', function() {
     players[1].hand = [];
     players[2].hand = [];
+    winner = "";
     resetBoard();
     turn =1;
     init();
@@ -49,7 +51,6 @@ function init() {
     shuffleDeck();
     dealCards();
     renderHands();
-    winner = "";
 }
 
 function resetBoard() {
@@ -206,12 +207,12 @@ function renderScore(total, player) {
 }
 
 function renderBank() {
-    console.log(winner)
     if (winner == 'player') {
-        players[2].bank += 5;
+        if (players[2].hand.length == 2 && Number(playScoreEl.innerText) == 21) players[2].bank += betAmount/2;
+        players[2].bank += betAmount;
     }
     else if (winner == 'dealer') {
-        players[2].bank -= 5;
+        players[2].bank -= betAmount;
     }
     playBankEl.innerText = players[2].bank;
 }
