@@ -148,11 +148,13 @@ function stand() {
 function dealerPlay () {
     document.getElementById('dc0').classList.remove('back-red');
     document.getElementById('dealerTotal').classList.remove('hidden');
-    while (dealTotal.innerText != "BUSTED!!!" &&(Number(dealScoreEl.innerText)) < 17 && (playScoreEl.innerText <= 21)) {
-        players[1].hand.push(gameDeck[0]);
-        gameDeck.shift();
-        totalHand(1);
-        renderHands()
+    if (playScoreEl.innerText == 21 && players[2].hand.length !== 2) {
+        while (Number(dealScoreEl.innerText) < 17 && (playScoreEl.innerText <= 21)) {
+            players[1].hand.push(gameDeck[0]);
+            gameDeck.shift();
+            totalHand(1);
+            renderHands()
+        }
     }
     totalHand(1);
     renderHands();
@@ -184,8 +186,11 @@ function renderHands() {
 
 function renderScore(total, player) {
     if (player === 2) {
-        if (Number(total) >=21) stand();
-        playScoreEl.innerText = Number(total);
+        if (Number(total) >=21) {
+            playScoreEl.innerText = Number(total);
+            stand();
+        }
+        playScoreEl.innerText= Number(total);
     }
     else {
         dealScoreEl.innerText = Number(total);
