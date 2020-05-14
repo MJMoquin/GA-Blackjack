@@ -6,20 +6,20 @@ Blackjack is the American version of a popular global banking game known as Twen
 
 ### Gameplay:
 #### < Initial Deal \>
-![Initial Deal](/Unit-1/GA-Blackjack/assets/InitialDeal.png)
+![Initial Deal](assets/InitialDeal.png)
 
 #### < Hit \>
-![First Hit](/Unit-1/GA-Blackjack/assets/firstHit.png)
+![First Hit](assets/firstHit.png)
 
 #### < Hit Again \>
-![Second Hit](/Unit-1/GA-Blackjack/assets/secondHit.png)
+![Second Hit](assets/secondHit.png)
 
 #### < Stand \>
-![Hand Ending](/Unit-1/GA-Blackjack/assets/endOfHand.png)
+![Hand Ending](assets/endOfHand.png)
 
 ### Technologies Used:
 
-![Tech Used](/Unit-1/GA-Blackjack/assets/html_css_js.png)
+![Tech Used](assets/html_css_js.png)
 
 ### Instructions:
 
