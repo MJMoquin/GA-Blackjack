@@ -148,12 +148,16 @@ function stand() {
 function dealerPlay () {
     document.getElementById('dc0').classList.remove('back-red');
     document.getElementById('dealerTotal').classList.remove('hidden');
-    if (playScoreEl.innerText == 21 && players[2].hand.length !== 2) {
+    if (playScoreEl.innerText == 21 && players[2].hand.length == 2) {
+        totalHand(1);
+        renderHands();
+    }
+    else {
         while (Number(dealScoreEl.innerText) < 17 && (playScoreEl.innerText <= 21)) {
             players[1].hand.push(gameDeck[0]);
             gameDeck.shift();
             totalHand(1);
-            renderHands()
+            renderHands();
         }
     }
     totalHand(1);
@@ -193,6 +197,10 @@ function renderScore(total, player) {
         playScoreEl.innerText= Number(total);
     }
     else {
+        if (Number(total) == 21) {
+            dealScoreEl.innerText = Number(total);
+            stand();
+        }
         dealScoreEl.innerText = Number(total);
     }
 }
