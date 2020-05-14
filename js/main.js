@@ -8,14 +8,14 @@ const players = {
     '2': {
         name: 'Player',
         hand: [],
-        bank: 0
+        bank: 500
     }
 }
 
 
 /*------ app's state (variables) -------*/
 let turn = 1;
-let pot = 0;
+let winner;
 let deck = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ","hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09","c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06","s05","s04","s03","s02"];
 let gameDeck = [];
 
@@ -29,6 +29,7 @@ const standBtn = document.getElementById('standBtn');
 const resetBtn = document.getElementById('reset');
 const dealTotal = document.getElementById('dealerTotal');
 const playTotal = document.getElementById('playerTotal');
+const playBankEl = document.getElementById('playerBank')
 
 /*---------- event listeners -----------*/
 standBtn.addEventListener('click', stand);
@@ -45,11 +46,10 @@ resetBtn.addEventListener('click', function() {
 init();
 
 function init() {
-    players[2].bank = 500;
     shuffleDeck();
     dealCards();
     renderHands();
-    
+    winner = "";
 }
 
 function resetBoard() {
@@ -73,8 +73,6 @@ function resetBoard() {
             if (myId === 'dc0') classList.add('back-red');
         }
     }
-    // playTotal.innerText = "Total: "
-    // dealTotal.innerText = "Total: "
     dealTotal.classList.add('hidden');
     resetBtn.classList.add('hidden')
     hitBtn.classList.remove('hidden')
@@ -153,13 +151,14 @@ function dealerPlay () {
         renderHands();
     }
     else {
-        while (Number(dealScoreEl.innerText) < 17 && (playScoreEl.innerText <= 21)) {
+        while ((dealScoreEl.innerText) < 17 && (playScoreEl.innerText <= 21)) {
             players[1].hand.push(gameDeck[0]);
             gameDeck.shift();
             totalHand(1);
             renderHands();
         }
     }
+    getWinner();
     totalHand(1);
     renderHands();
     hitBtn.classList.add('hidden')
@@ -203,43 +202,31 @@ function renderScore(total, player) {
         }
         dealScoreEl.innerText = Number(total);
     }
+    playBankEl.innerText = players[2].bank;
 }
 
+function renderBank() {
+    console.log(winner)
+    if (winner == 'player') {
+        players[2].bank += 5;
+    }
+    else if (winner == 'dealer') {
+        players[2].bank -= 5;
+    }
+    playBankEl.innerText = players[2].bank;
+}
 
-
-
-
-
-
-
-
-
-
-// function getWinner() {
-//    et wiElnner;
-//     if (playerSco.inneElrText <= 21 && dealerScore.innerText <= 21) //   El      if (Number(playerSco.inneElrText) > Number(dealerScore.innerText)) {
-//             winner = 'Player'
-//         }
-//      El else if (Number(playerSco.inneElrText) < Number(dealerScore.innerText)) {
-//             winner = 'Dealer'
-//         }
-//         else {
-//             winner = 'T'
-//         }
-//     }/    El else if (Number(playerSco.inneElrText <= 21) && Number(dealerScore.innerText > 21)) {
-//         winner = 'Player'
-//     }
-//     else {
-//         winner = 'Dealer'
-//     }
-//     declareWinner(winner);
-// }
-
-// function declareWinner(winner) {
-//     if (winner !== 'T') {
-//         alert(`${winner} Wns!!`)
-//     }
-//     else {
-//         alert("It's a Tie.")
-//     }
-// }
+function getWinner() {
+    player = Number(playScoreEl.innerText);
+    dealer = Number(dealScoreEl.innerText);
+    if ((dealer > player && dealer <= 21) || player > 21) {
+        winner = "dealer"
+    }
+    else if ((player > dealer && player <= 21) || dealer > 21) {
+        winner = "player"
+    }
+    else {
+        winner = 'T'
+    }
+    renderBank();
+}
