@@ -30,6 +30,6 @@ The game begins with each player and the dealer being dealt two cards. Only one 
 ### Future Features:
 
 * Add Variable Betting
-* Add Win/Loss Message
+* <del>Add Win/Loss Message<del>
 * Add Gameplay Sounds
 * Add Card Animation
